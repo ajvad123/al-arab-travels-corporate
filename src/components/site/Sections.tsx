@@ -5,19 +5,20 @@ import {
   Lock, Briefcase, Globe2, Luggage, BookOpen, Building2, Compass,
   ArrowRight, Quote,
 } from "lucide-react";
+import heroLanding from "@/assets/hero-landing.jpg";
 
 /* ---------------- HERO ---------------- */
 export function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] flex items-center pt-20 overflow-hidden">
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=80')",
-        }}
+      <img
+        src={heroLanding}
+        alt="Al Arab Travels — premium global travel and Haj & Umrah services"
+        className="absolute inset-0 -z-10 w-full h-full object-cover"
+        width={1920}
+        height={1280}
       />
-      <div className="absolute inset-0 -z-10 bg-navy/70" />
+      <div className="absolute inset-0 -z-10 bg-navy/65" />
 
       <div className="container-x py-20 md:py-28 text-white relative">
         <div className="max-w-3xl animate-fade-up">
