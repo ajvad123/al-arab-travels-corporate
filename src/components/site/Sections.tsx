@@ -14,13 +14,13 @@ export function Hero() {
       <img
         src={heroLanding}
         alt="Al Arab Travels — premium global travel and Haj & Umrah services"
-        className="absolute inset-0 -z-10 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover"
         width={1920}
         height={1280}
       />
-      <div className="absolute inset-0 -z-10 bg-navy/65" />
+      <div className="absolute inset-0 bg-navy/65" />
 
-      <div className="container-x py-20 md:py-28 text-white relative">
+      <div className="container-x py-20 md:py-28 text-white relative z-10">
         <div className="max-w-3xl animate-fade-up">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wider uppercase text-gold">
             <span className="w-1.5 h-1.5 rounded-full bg-gold" /> Premium Travel & Visa Consultancy
