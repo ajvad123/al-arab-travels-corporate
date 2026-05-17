@@ -22,76 +22,96 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur shadow-sm border-b border-border" : "bg-white/80 backdrop-blur"
-      }`}
-    >
-      <div className="container-x flex items-center justify-between h-16 md:h-20">
-        <a href="#home" className="flex items-center gap-2.5">
-          <span className="grid place-items-center w-10 h-10 rounded-lg bg-navy text-white">
-            <Plane className="w-5 h-5 text-gold" />
-          </span>
-          <span className="font-display font-bold text-lg md:text-xl text-navy leading-tight">
-            Al Arab Travels
-            <span className="block text-[10px] font-medium tracking-widest text-gold uppercase">Kalikavu · Kerala</span>
-          </span>
-        </a>
-
-        <nav className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-foreground/80 hover:text-navy relative group transition-colors"
-            >
-              {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-md bg-navy text-white px-5 py-2.5 text-sm font-semibold hover:bg-navy/90 transition shadow-sm"
-          >
-            Book Now
-          </a>
-        </div>
-
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-navy"
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
+      <div className="mx-auto max-w-7xl px-4">
+        <div
+          className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-500 ${
+            scrolled ? "glass shadow-card-premium" : ""
+          }`}
         >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+          <a href="#home" className="flex items-center gap-3 group active" aria-current="page">
+            <span
+              className={`grid place-items-center w-10 h-10 rounded-xl transition-all duration-500 shadow-md group-hover:scale-105 ${
+                scrolled
+                  ? "bg-navy text-white group-hover:bg-gold group-hover:text-navy"
+                  : "bg-white/10 text-gold backdrop-blur-md border border-white/20 group-hover:bg-white/20"
+              }`}
+            >
+              <Plane className={`w-5 h-5 transition-colors ${scrolled ? "text-gold group-hover:text-navy" : "text-gold"}`} />
+            </span>
+            <span
+              className={`font-display font-bold text-lg md:text-xl leading-tight tracking-tight transition-colors duration-500 ${
+                scrolled ? "text-navy" : "text-white"
+              }`}
+            >
+              Al Arab <span className="text-gradient">Travels</span>
+              <span className="block text-[10px] font-semibold tracking-widest text-gold uppercase mt-0.5">
+                Kalikavu · Kerala
+              </span>
+            </span>
+          </a>
 
-      {open && (
-        <div className="lg:hidden border-t border-border bg-white">
-          <div className="container-x py-4 flex flex-col gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="px-3 py-2.5 rounded-md text-foreground hover:bg-secondary text-sm font-medium"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                  scrolled
+                    ? "text-muted-foreground hover:text-navy hover:bg-navy/5"
+                    : "text-white/80 hover:text-white hover:bg-white/10"
+                }`}
               >
                 {l.label}
               </a>
             ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-2">
             <a
               href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-navy text-white px-5 py-3 text-sm font-semibold"
+              className="px-5 py-2.5 text-sm font-medium rounded-xl bg-gold text-navy shadow-glow hover:opacity-90 transition-all duration-300 hover:-translate-y-0.5"
             >
               Book Now
             </a>
           </div>
+
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen(!open)}
+            className={`lg:hidden h-10 w-10 grid place-items-center rounded-xl transition-all duration-300 ${
+              scrolled ? "glass text-navy" : "bg-white/10 backdrop-blur-md border border-white/20 text-white"
+            }`}
+          >
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
-      )}
+
+        {open && (
+          <div className="lg:hidden mt-2 glass rounded-2xl p-4 animate-fade-up shadow-card-premium border border-border/50">
+            <div className="flex flex-col gap-1">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="px-4 py-2.5 rounded-lg text-sm font-medium text-foreground/80 hover:text-navy hover:bg-navy/5 transition-colors"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 px-4 py-3 text-center text-sm font-medium rounded-xl bg-gold text-navy shadow-glow hover:opacity-90 transition-all"
+              >
+                Book Now
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
+

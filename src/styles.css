@@ -97,6 +97,25 @@
   .text-emerald-brand { color: var(--emerald-brand); }
   .bg-emerald-brand { background-color: var(--emerald-brand); }
   .container-x { max-width: 1240px; margin-inline: auto; padding-inline: 1.25rem; }
+
+  .glass {
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .shadow-card-premium {
+    box-shadow: 0 12px 30px -16px rgba(15, 23, 42, 0.2);
+  }
+  .shadow-glow {
+    box-shadow: 0 12px 30px -12px rgba(200, 169, 81, 0.45);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, var(--gold) 0%, #E6CA65 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 @keyframes fadeUp {
