@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"import fs from 'node:fs'; [ 'dist/client/wrangler.json', 'dist/server/wrangler.json' ].forEach(p => { if (fs.existsSync(p)) { const c = JSON.parse(fs.readFileSync(p, 'utf-8')); delete c.triggers; fs.writeFileSync(p, JSON.stringify(c, null, 2)); } });\"",
+    "build": "vite build && node -e \"import fs from 'node:fs'; [ 'dist/client/wrangler.json', 'dist/server/wrangler.json' ].forEach(p => { if (fs.existsSync(p)) { const c = JSON.parse(fs.readFileSync(p, 'utf-8')); delete c.triggers; delete c.assets; fs.writeFileSync(p, JSON.stringify(c, null, 2)); } });\"",
     "build:dev": "vite build --mode development",
     "deploy": "wrangler pages deploy ./dist/client --project-name al-arab-travels-corporate",
     "build-deploy": "bun run build && bun run deploy",
