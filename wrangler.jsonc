@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "al-arab-travels-corporate",
-  "main": "./dist/server/server.js",
+  "main": "./src/server.ts",
   "compatibility_date": "2026-05-19",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
